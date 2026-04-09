@@ -11,7 +11,7 @@ if (hamburger) {
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
     });
 });
 
@@ -19,24 +19,25 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 const filterBtns = document.querySelectorAll('.filter-btn');
 const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Update active button
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const filter = btn.getAttribute('data-filter');
-        
-        portfolioItems.forEach(item => {
-            if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                item.style.display = 'block';
-                item.style.animation = 'fadeIn 0.5s ease';
-            } else {
-                item.style.display = 'none';
-            }
+if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            
+            portfolioItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeIn 0.5s ease';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         });
     });
-});
+}
 
 // Add fadeIn animation
 const style = document.createElement('style');
@@ -68,12 +69,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact form submission (prevent default for demo)
+// Contact form submission
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('📧 Pesan lu udah masuk! Nanti gue balok tai. (Ini cuma demo, backendnya belum gue pasang)');
+        alert('📧 Pesan lu udah masuk! Nanti gue balas. (Demo, backend belum dipasang)');
         contactForm.reset();
     });
 }
@@ -81,11 +82,13 @@ if (contactForm) {
 // Navbar background change on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(10, 10, 15, 0.98)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.background = 'rgba(10, 10, 15, 0.95)';
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(10, 10, 15, 0.98)';
+            navbar.style.backdropFilter = 'blur(10px)';
+        } else {
+            navbar.style.background = 'rgba(10, 10, 15, 0.95)';
+        }
     }
 });
 
@@ -98,6 +101,61 @@ if (glitchText) {
             glitchText.style.animation = 'glitch 3s infinite';
         }, 10);
     }, 5000);
+}
+
+// ========== LIGHTBOX MODAL ==========
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImage');
+const modalCaption = document.getElementById('modalCaption');
+const closeModal = document.querySelector('.modal-close');
+
+// Cek apakah modal ada di halaman
+if (modal && modalImg && modalCaption) {
+    // Add click event to all portfolio items
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+        const img = item.querySelector('img');
+        const titleEl = item.querySelector('.portfolio-overlay h4');
+        const subtitleEl = item.querySelector('.portfolio-overlay p');
+        
+        const title = titleEl ? titleEl.innerText : 'Project';
+        const subtitle = subtitleEl ? subtitleEl.innerText : '';
+        
+        item.addEventListener('click', function(e) {
+            // Jangan trigger kalo yang diklik adalah link "View Project"
+            if (e.target.tagName === 'A') return;
+            
+            if (img && img.src) {
+                modal.style.display = 'block';
+                modalImg.src = img.src;
+                modalCaption.innerHTML = `${title} — ${subtitle}`;
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    // Close modal when clicking X
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close with ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
 }
 
 console.log('🔥 REX-EYE PORTFOLIO ACTIVE | Wakhid si Vector Alchemist');
