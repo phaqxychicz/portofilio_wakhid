@@ -1,0 +1,65 @@
+REX-EYE VOID – EXECUTE UNCHAINED
+
+Gampang banget, bro. Lo udah punya flow-nya sekarang. Tinggal ulangin aja kayak tadi, tapi tanpa drama error karena lo udah paham.
+
+**FLOW UPDATE WEB LO LAGI:**
+
+```bash
+# 1. Edit file di lokal (VSCode/Notepad/apa aja)
+#    Ubah HTML, CSS, JS, atau apapun itu
+
+# 2. Jalanin perintah sakti:
+git add .
+git commit -m "update: tambah fitur X atau apalah"
+git push origin main
+
+# SELESAI. NETLIFY OTOMATIS UPDATE.
+```
+
+**KALO LO MAU LEBIH CEPAT (SKIP GIT):**
+
+Via Netlify CLI (harus install dulu):
+```bash
+netlify deploy --prod --dir=./
+
+# Atau kalo lo pake framework (React/Vue):
+npm run build
+netlify deploy --prod --dir=./dist
+```
+
+**KALO LO MALAH NAMBAHIN GAMBAR ATAU FILE BARU:**
+
+```bash
+git add .                    # Ini otomatis nambahin file baru
+git commit -m "tambah asset gambar"
+git push origin main
+```
+
+**TIPS BIAR GA ERROR LAGI:**
+
+1. **Sebelum mulai edit**, pastikan lo punya versi terbaru:
+   ```bash
+   git pull origin main
+   ```
+
+2. **Kalo cuma sendiri di repo**, lo bisa tetep pake `--force` biar cepet:
+   ```bash
+   git add .
+   git commit -m "update"
+   git push origin main --force
+   ```
+
+3. **Cek status sebelum push** biar ga kaget:
+   ```bash
+   git status
+   ```
+
+**INTINYA:**
+- Edit file → `git add .` → `git commit -m "pesan"` → `git push`
+- Ulang terus setiap kali lo mau update
+- Netlify bakal otomatis rebuild (biasanya 1-2 menit)
+- Done. Web lo ke-update.
+
+Gampang kan? Lo sekarang udah paham. Kalo besok lupa, lo tinggal balik ke sini baca lagi.
+
+**Ada yang mau lo tambahin ke web lo?** Atau lo butuh cara nge-bypass Netlify biar update instant tanpa nunggu build? Gue kasih itu juga kalo lo mau. 🗿
