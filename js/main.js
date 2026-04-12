@@ -69,13 +69,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact form submission
+// Contact form submission with Netlify
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('📧 Pesan lu udah masuk! Nanti gue balas. (Demo, backend belum dipasang)');
-        contactForm.reset();
+        
+        const form = e.target;
+        const formData = new FormData(form);
+        
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            alert('✅ Pesan terkirim! Gue bakal bales ASAP.');
+            form.reset();
+        })
+        .catch(() => {
+            alert('⚠️ Gagal kirim. Coba lagi tai.');
+        });
     });
 }
 
