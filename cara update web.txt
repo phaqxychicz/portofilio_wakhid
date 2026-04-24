@@ -1,65 +1,46 @@
-REX-EYE VOID – EXECUTE UNCHAINED
+🔥 CARA UPDATE WEB PAKE NETLIFY CLI (TERMINAL) 🔥
+1 FRAME = 3 LANGKAH MANTAP:
+bash
+# STEP 1: MASUK KE FOLDER PROYEK
+cd D:\portofolio-wakhid
 
-Gampang banget, bro. Lo udah punya flow-nya sekarang. Tinggal ulangin aja kayak tadi, tapi tanpa drama error karena lo udah paham.
+# STEP 2: DEPLOY SEMUA PERUBAHAN KE LIVE WEB
+netlify deploy --prod
 
-**FLOW UPDATE WEB LO LAGI:**
+# STEP 3: TUNGGU SAMPAI MUNCUL "✔ Finished"
+SELESAI. WEB LU LANGSUNG UPDATE. 🔥
 
-```bash
-# 1. Edit file di lokal (VSCode/Notepad/apa aja)
-#    Ubah HTML, CSS, JS, atau apapun itu
+CONTOH KASUS YANG LU BISA UPDATE:
+Yang lu ganti	Cukup jalanin netlify deploy --prod
+Ganti tulisan "Vector Alchemist" jadi "Designer"	✅
+Ganti warna biru jadi ungu	✅
+Nambah project portfolio baru	✅
+Upload gambar baru ke folder images/	✅
+Perbaiki lightbox yang error	✅
+Ganti email di contact section	✅
+Update foto profil	✅
+YANG PERLU DIINGAT:
+Pertama kali aja perlu netlify login dan netlify link
 
-# 2. Jalanin perintah sakti:
-git add .
-git commit -m "update: tambah fitur X atau apalah"
-git push origin main
+Setelah itu cukup netlify deploy --prod buat update apa pun
 
-# SELESAI. NETLIFY OTOMATIS UPDATE.
-```
+Lu gak perlu upload file satu-satu
 
-**KALO LO MAU LEBIH CEPAT (SKIP GIT):**
+Lu gak perlu buka browser
 
-Via Netlify CLI (harus install dulu):
-```bash
-netlify deploy --prod --dir=./
+Lu gak perlu drag-drop
 
-# Atau kalo lo pake framework (React/Vue):
-npm run build
-netlify deploy --prod --dir=./dist
-```
+CEPATNYA KAYAK GINI:
+text
+Lu edit file → save → buka terminal → up arrow (buat manggil history command) → enter → beres
+Gak nyampe 30 detik tai. 🔥
 
-**KALO LO MALAH NAMBAHIN GAMBAR ATAU FILE BARU:**
+SIMPAN CHEAT SHEET INI:
+bash
+netlify login      # login sekali doang
+netlify link       # link proyek sekali doang  
+netlify deploy --prod   # UPDATE SELALU PAKE INI
+netlify deploy      # kalo mau preview dulu
+netlify open        # buka web lu di browser
+GIMANA? UDAH JELAS TAI? LANGSUNG COBA SEKARANG. 🔥
 
-```bash
-git add .                    # Ini otomatis nambahin file baru
-git commit -m "tambah asset gambar"
-git push origin main
-```
-
-**TIPS BIAR GA ERROR LAGI:**
-
-1. **Sebelum mulai edit**, pastikan lo punya versi terbaru:
-   ```bash
-   git pull origin main
-   ```
-
-2. **Kalo cuma sendiri di repo**, lo bisa tetep pake `--force` biar cepet:
-   ```bash
-   git add .
-   git commit -m "update"
-   git push origin main --force
-   ```
-
-3. **Cek status sebelum push** biar ga kaget:
-   ```bash
-   git status
-   ```
-
-**INTINYA:**
-- Edit file → `git add .` → `git commit -m "pesan"` → `git push`
-- Ulang terus setiap kali lo mau update
-- Netlify bakal otomatis rebuild (biasanya 1-2 menit)
-- Done. Web lo ke-update.
-
-Gampang kan? Lo sekarang udah paham. Kalo besok lupa, lo tinggal balik ke sini baca lagi.
-
-**Ada yang mau lo tambahin ke web lo?** Atau lo butuh cara nge-bypass Netlify biar update instant tanpa nunggu build? Gue kasih itu juga kalo lo mau. 🗿

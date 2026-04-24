@@ -177,10 +177,84 @@
                         <p>...</p>
                         <a href="#">View Project →</a>
                     </div>
+                </div> 
+                <div class="portfolio-item" data-category="graphic">
+                    <img src="images/portfolio-9.jpg" alt="Project 9">
+                    <div class="portfolio-overlay">
+                        <h4>Aerem 2</h4>
+                        <p>...</p>
+                        <a href="#">View Project →</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+            <!-- RANDOM SECTION -->
+    <section id="random" class="random">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Other Things</span>
+                <h2>Random <span class="highlight">Stuff</span></h2>
+            </div>
+            <div class="random-grid">
+                
+                <!-- CARD 1: LINK (Klik muncul deretan link) -->
+                <div class="random-card" id="linkCard">
+                    <i class="fas fa-link"></i>
+                    <h3>Link</h3>
+                    <p>Kumpulan link berguna</p>
+                    <button class="random-btn" id="linkBtn">Lihat Link →</button>
+                </div>
+
+                                <!-- CARD 2: RANDOM PICTURE (Lihat gambar) -->
+                <div class="random-card" id="picCard">
+                    <i class="fas fa-image"></i>
+                    <h3>Random Picture</h3>
+                    <p>Klik tombol buat lihat koleksi gambar</p>
+                    <button class="random-btn" id="picBtn">Lihat Gambar →</button>
+                </div>
+
+                <!-- CARD 3: NOW PLAYING (Link musik) -->
+                <div class="random-card" id="musicCard">
+                    <i class="fas fa-headphones"></i>
+                    <h3>Now Playing</h3>
+                    <p>Lagu yang lagi diputer</p>
+                    <button class="random-btn" id="musicBtn">Dengarkan→</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL UNTUK LINK (Popup deretan link) -->
+    <div id="linkModal" class="link-modal">
+        <div class="link-modal-content">
+            <span class="link-modal-close">&times;</span>
+            <h3>📌 Kumpulan Link</h3>
+            <ul class="link-list" id="linkList">
+                <!-- Link akan muncul di sini -->
+            </ul>
+        </div>
+    </div>
+
+        <!-- MODAL UNTUK GAMBAR (Fullscreen) -->
+    <div id="imageModalRandom" class="modal">
+        <span class="modal-close" id="randomModalClose">&times;</span>
+        <img class="modal-content" id="modalImageRandom">
+        <div class="modal-caption" id="modalCaptionRandom"></div>
+    </div>
+
+        <!-- MODAL UNTUK PILIH GAMBAR (Thumbnail grid) -->
+    <div id="galleryModal" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="gallery-modal-close">&times;</span>
+            <h3>📸 Pilih Gambar</h3>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Thumbnail gambar bakal muncul di sini -->
+            </div>
+        </div>
+    </div>
 
     <!-- ABOUT SECTION -->
     <section id="about" class="about">
@@ -241,18 +315,22 @@
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm" data-netlify="true" method="POST" name="contact" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="contact">
-                    <p class="hidden" style="display:none;">
-                        <label>Jangan diisi: <input name="bot-field"></label>
-                    </p>
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn-primary">Send Message →</button>
-                </form>
+    <input type="hidden" name="form-name" value="contact">
+    <p class="hidden" style="display:none;">
+        <label>Jangan diisi: <input name="bot-field"></label>
+    </p>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn-primary">Send Message →</button>
+</form>
             </div>
         </div>
     </section>
+
+ <div style="text-align: center; margin-top: 20px; font-size: 12px; color: #666;">
+    <p>Powered by <a href="https://www.netlify.com" style="color: #00D4FF;">Netlify Forms</a></p>
+</div>   
 
     <!-- FOOTER -->
     <footer class="footer">
