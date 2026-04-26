@@ -183,7 +183,7 @@ const linkList = document.getElementById('linkList');
 // Daftar link yang bakal muncul (EDIT DI SINI)
 const links = [
     { name: "Buat Belajar CorelDraw", url: "https://youtu.be/8GMCpXM_NFM?si=DZdKuZLNaG67aGQn" },
-    { name: "Buat Belajar CorelDraw", url: "https://note-crypt-web.vercel.app/" },
+    { name: "note-crypt-web", url: "https://note-crypt-web.vercel.app/" },
 ];
 
 // Generate link ke modal
